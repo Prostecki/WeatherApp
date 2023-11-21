@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <script src="api.js" type="module"></script>
 </head>
 <body>
     <div class="weather-container">
         <h1>Weather App</h1>
         <div id="weather-info">
-            <!-- Weather information will be displayed here -->
+            <div id="temperature"></div>
+            <div id="location">${location}</div>
         </div>
     </div>
 </body>
