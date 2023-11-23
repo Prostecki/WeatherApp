@@ -5,7 +5,9 @@ const apiKey = '7745ad0a99b44eb8a1b165946232111';
 const baseUrl = 'http://api.weatherapi.com/v1';
 
 // City for which weather information is requested
-const city = 'Stockholm';
+const valueCity = document.getElementById('valueCity');
+
+console.log(valueCity);
 
 // Construct the full API URL with parameters
 const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${city}`;
