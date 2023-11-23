@@ -1,16 +1,16 @@
 // Weather API key for authentication
-const apiKey = '7745ad0a99b44eb8a1b165946232111';
+const apiKey = '6a1dd8448eaa46809c8184729232311';
 
 // Base URL for the Weather API
 const baseUrl = 'http://api.weatherapi.com/v1';
 
 // City for which weather information is requested
-const valueCity = document.getElementById('valueCity');
+const valueCity = document.getElementById('valueCity').value;
 
-console.log(valueCity);
+const valueCityOnce = 'Stockholm'
 
 // Construct the full API URL with parameters
-const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${city}`;
+const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
 
 // Function to fetch data using XMLHttpRequest and return a Promise
 function fetchData(url) {
@@ -50,20 +50,27 @@ function fetchData(url) {
     });
 }
 
-// Use the fetchData function to get weather data
-fetchData(apiUrl)
-    .then((data) => {
-        // Extract location and temperature from the data
-        const location = data.location.name;
-        const temperature = data.current.temp_c;
+document.getElementById('btnSubmit').addEventListener('click', () => {
+    
+    const valueCity = document.getElementById('valueCity').value;
+    const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
 
-        // Update HTML elements with weather information
-        const locationElement = document.getElementById('location');
-        const temperatureElement = document.getElementById('temperature');
-        temperatureElement.textContent = `Current Temperature: ${temperature}°C`;
-        locationElement.textContent = `Location: ${location}`;
+    // Use the fetchData function to get weather data
+fetchData(apiUrl)
+.then((data) => {
+    // Extract location and temperature from the data
+    const location = data.location.name;
+    const temperature = data.current.temp_c;
+
+    // Update HTML elements with weather information
+    const locationElement = document.getElementById('location');
+    const temperatureElement = document.getElementById('temperature');
+    temperatureElement.textContent = `Current Temperature: ${temperature}°C`;
+    locationElement.textContent = `Location: ${location}`;
     })
-    .catch((error) => {
-        // Handle errors
-        console.error('Error: ', error);
+.catch((error) => {
+    // Handle errors
+    console.error('Error: ', error);
     });
+})
+
