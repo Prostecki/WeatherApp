@@ -81,6 +81,7 @@ fetchData(apiUrl)
     countryElement.textContent = `Country: ${country}`;
     conditionTextElement.textContent = `Condition: ${condition}`;
     conditionImgElement.src = `${conditionImg}`;
+    console.log(conditionImgElement);
 
     //Save the weather data to localStorage
     localStorage.setItem('weatherData', JSON.stringify(data));
@@ -99,8 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const locationElement = document.getElementById('location');
         const temperatureElement = document.getElementById('temperature');
         const countryElement = document.getElementById('country');
+        const conditionTextElement = document.querySelector('.condition-text');
+        const conditionImgElement = document.querySelector('.condition-img');
+
         temperatureElement.textContent = `Current Temperature: ${data.current.temp_c}°C`;
         locationElement.textContent = `Location: ${data.location.name}`;
         countryElement.textContent = `Country: ${data.location.country}`;
+        conditionTextElement.textContent = `Condition: ${data.current.condition.text}`;
+        conditionImgElement.src = `${data.current.condition.icon}`;
     }
 })
