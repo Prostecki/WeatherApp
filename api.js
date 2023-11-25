@@ -70,6 +70,10 @@ fetchData(apiUrl)
     temperatureElement.textContent = `Current Temperature: ${temperature}°C`;
     locationElement.textContent = `Location: ${location}`;
     countryElement.textContent = `Country: ${country}`;
+
+    //Save the weather data to localStorage
+    localStorage.setItem('weatherData', JSON.stringify(data));
+
     })
 .catch((error) => {
     // Handle errors
@@ -77,3 +81,15 @@ fetchData(apiUrl)
     });
 })
 
+document.addEventListener('DOMContentLoaded', () => {
+    const storedWeatherData = localStorage.getItem('weatherData');
+    if(storedWeatherData) {
+        const data = JSON.parse(storedWeatherData);
+        const locationElement = document.getElementById('location');
+        const temperatureElement = document.getElementById('temperature');
+        const countryElement = document.getElementById('country');
+        temperatureElement.textContent = `Current Temperature: ${data.current.temp_c}°C`;
+        locationElement.textContent = `Location: ${data.location.name}`;
+        countryElement.textContent = `Country: ${data.location.country}`;
+    }
+})
