@@ -50,30 +50,40 @@ function fetchData(url) {
     });
 }
 
+// Add an event listener to the button for fetching weather data on click
 document.getElementById('btnSubmit').addEventListener('click', () => {
 
+    // Get the value of the city from the input field
     const valueCity = document.getElementById('valueCity').value;
+
+    // Construct the full API URL with parameters using the input city
     const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
 
-    // Use the fetchData function to get weather data
+// Use the fetchData function to get weather data
 fetchData(apiUrl)
 .then((data) => {
     // Extract location and temperature from the data
     const location = data.location.name;
     const temperature = data.current.temp_c;
     const country = data.location.country;
+    const condition = data.current.condition.text;
+    const conditionImg = data.current.condition.img;
 
     // Update HTML elements with weather information
     const locationElement = document.getElementById('location');
     const temperatureElement = document.getElementById('temperature');
     const countryElement = document.getElementById('country');
+    const conditionTextElement = document.querySelector('.condition-text');
+    const conditionImgElement = document.querySelector('.condition-img');
+
     temperatureElement.textContent = `Current Temperature: ${temperature}°C`;
     locationElement.textContent = `Location: ${location}`;
     countryElement.textContent = `Country: ${country}`;
+    conditionTextElement.textContent = `Condition: ${condition}`;
+    conditionImgElement.src = `${conditionImg}`;
 
     //Save the weather data to localStorage
     localStorage.setItem('weatherData', JSON.stringify(data));
-
     })
 .catch((error) => {
     // Handle errors
@@ -81,6 +91,7 @@ fetchData(apiUrl)
     });
 })
 
+// Check if weather data is stored in localStorage on page load
 document.addEventListener('DOMContentLoaded', () => {
     const storedWeatherData = localStorage.getItem('weatherData');
     if(storedWeatherData) {
