@@ -51,7 +51,7 @@ function fetchData(url) {
 }
 
 document.getElementById('btnSubmit').addEventListener('click', () => {
-    
+
     const valueCity = document.getElementById('valueCity').value;
     const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
 
@@ -61,12 +61,15 @@ fetchData(apiUrl)
     // Extract location and temperature from the data
     const location = data.location.name;
     const temperature = data.current.temp_c;
+    const country = data.location.country;
 
     // Update HTML elements with weather information
     const locationElement = document.getElementById('location');
     const temperatureElement = document.getElementById('temperature');
+    const countryElement = document.getElementById('country');
     temperatureElement.textContent = `Current Temperature: ${temperature}°C`;
     locationElement.textContent = `Location: ${location}`;
+    countryElement.textContent = `Country: ${country}`;
     })
 .catch((error) => {
     // Handle errors
