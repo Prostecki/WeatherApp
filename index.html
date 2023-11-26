@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="api.js" type="module"></script>
+    <link id="stylesheet" rel="stylesheet" href="styles/light.css">
+    <script src="js/api.js" defer></script>
+    <script src="js/dom.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <div class="search-container">
-            <input id="valueCity" type="text">
-            <button id="btnSubmit">Confirm</button>
+        <div class="top-container">
+            <div class="theme">Theme</div>
+            <div class="search-container">
+                <input id="valueCity" type="text">
+                <button id="btnSubmit">Confirm</button>
+            </div>
         </div>
+        
         <div class="weather-container">
             <div id="weather-info">
                 <div id="location"></div>
