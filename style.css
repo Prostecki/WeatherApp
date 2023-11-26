@@ -31,7 +31,13 @@ body {
     font-weight: bolder;
     text-align: center;
     margin: 10px 0 0 0;
- }
+}
+ .search-container {
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    margin: 5px 0 10px 0;
+}
  #valueCity {
     margin: 5px;
     border-radius: 10px;
@@ -40,6 +46,8 @@ body {
     text-align: center;
  }
  #btnSubmit {
+    width: 80px;
+    font-size: 15px;
     border-radius: 10px;
     padding: 5px;
     border: none;
@@ -48,4 +56,5 @@ body {
     color: yellow;
     background-color: grey;
     cursor: pointer;
+    text-align: center;
  }
