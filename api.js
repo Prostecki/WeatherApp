@@ -43,9 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add an event listener to the button for fetching weather data on click
     document.getElementById('btnSubmit').addEventListener('click', () => {
-
+        
         //Get the value of the city from the input field
         const valueCity = document.getElementById('valueCity').value;
+
+        //Checks if valueCity is an empty string || Checks if valueCity is not a number.
+        if(valueCity === '' || !isNaN(valueCity)) {
+            alert('Insert a city!');
+        } else {
 
         //Construct the full API URL with parameters using the input city
         const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
@@ -67,11 +72,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 //Save the weather data to localStorage
                 localStorage.setItem('weatherData', JSON.stringify(data));
+
+                // Clear the input field
+                document.getElementById('valueCity').value = '';
             })
             .catch((error) => {
                 //Handle errors
                 console.error('Error: ', error);
             });
+        }
+
+        
     });
 
     //Check if weather data is stored in localStorage on page load

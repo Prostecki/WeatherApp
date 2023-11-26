@@ -88,4 +88,10 @@ body {
     background-color: grey;
     cursor: pointer;
     text-align: center;
+    transition: 0.5s;
+ }
+ #btnSubmit:hover {
+    background-color: yellow;
+    color: black;
+    transition: 0.5s;
  }
