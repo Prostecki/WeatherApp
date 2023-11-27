@@ -71,6 +71,14 @@ body {
     justify-content: space-around;
     align-items: center;
  }
+ .feelslike-container, .humidity-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+ }
+  .humidity-container {
+    border-left: .5px solid grey;
+ }
  .feelslike-c {
     line-height: 50px;
  }

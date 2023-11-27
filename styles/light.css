@@ -71,16 +71,23 @@ body {
    justify-content: space-around;
    align-items: center;
 }
- .feelslike-container{
+ .feelslike-container, .humidity-container {
+   width: 50%;
    display: flex;
- }
+   justify-content: center;
+}
+ .feelslike-img {
+   width: 40px;
+}
+ .humidity-container {
+   border-left: .5px solid grey;
+}
 .feelslike-c {
    line-height: 50px;
 }
 .humidity {
    text-align: center;
    line-height: 50px;
-   border-left: .5px solid grey;
 }
  #weather-info {
     display: flex;
