@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         locationElement.textContent = `${data.location.name}, ${data.location.country}`;
         conditionTextElement.textContent = `${data.current.condition.text}`;
         conditionImgElement.src = `${data.current.condition.icon}`;
-        feelslikeElement.textContent = `Feels like: ${data.current.feelslike_c}`;
-        humidityElement.textContent = `Humidity: ${data.current.humidity}`;
+        feelslikeElement.textContent = `Feels like: ${data.current.feelslike_c}°C`;
+        humidityElement.textContent = `Humidity: ${data.current.humidity}%`;
     }
 });

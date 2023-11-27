@@ -4,6 +4,7 @@ const themeButton = document.querySelector('.theme');
 //Add a click event listener to the theme button
 themeButton.addEventListener('click', () => {
     toggleTheme();
+
 });
 
 //Function to toggle between light and dark themes
@@ -17,11 +18,13 @@ function toggleTheme() {
         stylesheet.setAttribute('href', 'styles/dark.css');
         //Save theme preferences
         localStorage.setItem('theme', 'dark');
+        themeButton.textContent = 'Light Theme';
     } else {
         // Set the stylesheet to light mode
         stylesheet.setAttribute('href', 'styles/light.css');
         //Save theme preferences
         localStorage.setItem('theme', 'light')
+        themeButton.textContent = 'Dark Theme';
     }
 };
 
