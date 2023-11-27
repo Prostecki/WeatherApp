@@ -72,15 +72,11 @@ body {
     align-items: center;
  }
  .feelslike-c {
-    width: 50%;
-    height: 100%;
     line-height: 50px;
  }
  .humidity {
-    width: 50%;
     text-align: center;
     line-height: 50px;
-    height: 100%;
     border-left: .5px solid grey;
  }
  #weather-info {
