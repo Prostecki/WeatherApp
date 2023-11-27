@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     //Parse the JSON response
                     const data = JSON.parse(xhr.responseText);
 
+                    console.log(data);
                     //Resolve the Promise with parsed data
                     resolve(data);
                 } else {
@@ -88,16 +89,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //Parse stored weather data from localStorage
         const data = JSON.parse(storedWeatherData);
-
+        console.log(data);
         // Update HTML elements with stored weather information
         const locationElement = document.getElementById('location');
         const temperatureElement = document.getElementById('temperature');
         const conditionTextElement = document.querySelector('.condition-text');
         const conditionImgElement = document.querySelector('.condition-img');
+        const feelslikeElement = document.querySelector('.feelslike-c');
+        const humidityElement = document.querySelector('.humidity');
 
         temperatureElement.textContent = `${data.current.temp_c}°C`;
         locationElement.textContent = `${data.location.name}, ${data.location.country}`;
         conditionTextElement.textContent = `${data.current.condition.text}`;
         conditionImgElement.src = `${data.current.condition.icon}`;
+        feelslikeElement.textContent = `Feels like: ${data.current.feelslike_c}`;
+        humidityElement.textContent = `Humidity: ${data.current.humidity}`;
     }
 });

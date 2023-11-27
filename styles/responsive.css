@@ -1,0 +1,64 @@
+/* styles-responsive.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: background-color 0.8s ease;
+}
+ .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+ .top-container {
+    width: 100%;
+}
+ .theme {
+    margin-bottom: 10px;
+}
+ .weather-container {
+    width: 100%;
+}
+ #weather-info {
+    padding: 10px;
+}
+ .search-container {
+    width: 100%;
+}
+ #valueCity {
+    width: calc(100% - 20px);
+}
+ #btnSubmit {
+    width: 100%;
+}
+ body.light {
+    background-color: #f4f4f4;
+    color: #333;
+}
+ body.light .container {
+    background-color: #fff;
+}
+ body.light .theme {
+    border: .5px solid #333;
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.1);
+}
+ body.dark {
+    background-color: #333;
+    color: #fff;
+}
+ body.dark .container {
+    background-color: #2f2f2f;
+}
+ body.dark .theme {
+    border: .5px solid #fff;
+    box-shadow: 0px 3
+}
