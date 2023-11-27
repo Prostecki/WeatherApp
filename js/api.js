@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const apiKey = '6a1dd8448eaa46809c8184729232311';
     
     //Base URL for the Weather API
-    const baseUrl = 'http://api.weatherapi.com/v1';
+    const baseUrl = 'https://api.weatherapi.com/v1';
 
     //Function to fetch data using XMLHttRequest and return a Promise
     function fetchData(url) {
