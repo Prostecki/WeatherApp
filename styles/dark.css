@@ -20,6 +20,7 @@ body {
     color: #ffffff;
 }
  .container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,13 +30,23 @@ body {
     border-radius: 15px;
     box-shadow: 0px 5px 10px black;
 }
+ .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0;
+  }
  .top-container {
-    width: 400px;
+    width: 450px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
  .theme {
+    width: 100px;
     border: .5px solid black;
     box-shadow: 0px 3px 7px black;
     border-radius: 10px;
