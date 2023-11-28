@@ -40,38 +40,3 @@ document.addEventListener('DOMContentLoaded', () => {
         stylesheet.setAttribute('href', `styles/${storedTheme}.css`);
     }
 });
-
-// //Function to check if the device is a mobile device
-// function isMobileDevice() {
-//     return window.innerWidth <= 600; // Adjust the width threshold as needed
-// }
-
-// //Function to dynamically load CSS based on device type and theme
-// function loadCSS() {
-//     const commonLink = document.createElement('link');
-
-//     commonLink.rel = 'stylesheet';
-
-//     //Common styles
-//     commonLink.href = 'styles/light.css';
-
-//     const additionalLink = document.createElement('link');
-//     additionalLink.rel = 'stylesheet';
-
-//     if (isMobileDevice()) {
-//         //Load mobile styles
-//         additionalLink.href = 'styles/responsive.css'; 
-//     } else {
-//         //Switch between light and dark themes based on some criteria
-//         //For example, you can use a preference saved in localStorage
-//         const isDarkTheme = localStorage.getItem('theme') === 'dark';
-
-//         additionalLink.href = isDarkTheme ? 'styles/dark.css' : 'styles-light.css';
-//     }
-
-//     document.head.appendChild(commonLink);
-//     document.head.appendChild(additionalLink);
-// }
-
-// //Load CSS when the DOM is ready
-// document.addEventListener('DOMContentLoaded', loadCSS);

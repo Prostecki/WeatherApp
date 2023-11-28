@@ -63,12 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const temperatureElement = document.getElementById('temperature');
                 const conditionTextElement = document.querySelector('.condition-text');
                 const conditionImgElement = document.querySelector('.condition-img');
+                const feelslikeElement = document.querySelector('.feelslike-c');
+                const humidityElement = document.querySelector('.humidity');
 
                 //Update HTML elements with weather information
                 temperatureElement.textContent = `${data.current.temp_c}°C`;
                 locationElement.textContent = `${data.location.name}, ${data.location.country}`;
                 conditionTextElement.textContent = `${data.current.condition.text}`;
                 conditionImgElement.src = `${data.current.condition.icon}`;
+                feelslikeElement.textContent = `Feels like: ${data.current.feelslike_c}°C`;
+                humidityElement.textContent = `Humidity: ${data.current.humidity}%`;
 
                 //Save the weather data to localStorage
                 localStorage.setItem('weatherData', JSON.stringify(data));

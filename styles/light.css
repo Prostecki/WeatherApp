@@ -75,6 +75,7 @@ body {
    width: 50%;
    display: flex;
    justify-content: center;
+   align-items: center;
 }
  .feelslike-img {
    width: 35px;
