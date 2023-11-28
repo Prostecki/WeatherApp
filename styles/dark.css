@@ -76,6 +76,10 @@ body {
     display: flex;
     justify-content: center;
  }
+  .feelslike-img {
+    width: 35px;
+    height: 100%;
+ }
   .humidity-container {
     border-left: .5px solid grey;
  }
@@ -85,7 +89,6 @@ body {
  .humidity {
     text-align: center;
     line-height: 50px;
-    border-left: .5px solid grey;
  }
  #weather-info {
     display: flex;

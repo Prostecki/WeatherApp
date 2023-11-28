@@ -77,7 +77,8 @@ body {
    justify-content: center;
 }
  .feelslike-img {
-   width: 40px;
+   width: 35px;
+   height: 100%;
 }
  .humidity-container {
    border-left: .5px solid grey;
