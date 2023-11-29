@@ -19,6 +19,11 @@ body {
     background-color: #000000;
     color: #ffffff;
 }
+ .flex-box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
  .container {
     position: relative;
     display: flex;
@@ -32,12 +37,16 @@ body {
 }
  .loader {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: black;
     opacity: 0;
+    z-index: -1;
   }
  .top-container {
     width: 450px;

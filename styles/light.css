@@ -41,6 +41,7 @@ body {
    bottom: 0;
    background-color: black;
    opacity: 0;
+   z-index: -1;
 }
  .top-container {
     width: 450px;
@@ -168,4 +169,23 @@ body {
     background-color: #ffc107; /* Yellow color */
     color: #333;
     transition: 0.5s;
+}
+
+@media screen and (max-width: 800px) {
+   .container {
+      width: 75%;
+      position: relative;
+   }
+    .top-container {
+      width: 100%;
+   }
+    .theme {
+      width: 25%;
+   }
+    .search-container {
+      width: 75%;
+   }
+    #valueCity {
+      width: 50%;
+    }
 }
