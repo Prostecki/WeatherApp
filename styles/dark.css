@@ -175,3 +175,38 @@ body {
     color: black;
     transition: 0.5s;
 }
+
+@media screen and (max-width: 800px) {
+    .container {
+       width: 75%;
+       position: relative;
+    }
+     .top-container {
+       width: 100%;
+    }
+     .theme {
+       width: 25%;
+    }
+     .search-container {
+       width: 75%;
+    }
+     #valueCity {
+       width: 50%;
+     }
+     #weather-additional {
+       display: flex;
+       flex-direction: column;
+       height: 150px;
+     }
+     .feelslike-container {
+       width: 100%;
+     }
+     .feelslike-img {
+       width: 50px;
+     }
+     .humidity-container {
+       width: 100%;
+       border-top: .5px solid grey;
+       border-left: none;
+     }
+ }
