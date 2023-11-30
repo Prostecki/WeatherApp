@@ -187,21 +187,21 @@ body {
    }
     #valueCity {
       width: 50%;
-    }
+   }
     #weather-additional {
       display: flex;
       flex-direction: column;
       height: 150px;
-    }
+   }
     .feelslike-container {
       width: 100%;
-    }
+   }
     .feelslike-img {
       width: 50px;
-    }
+   }
     .humidity-container {
       width: 100%;
       border-top: .5px solid grey;
       border-left: none;
-    }
+   }
 }

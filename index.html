@@ -10,39 +10,42 @@
     <script src="js/dom.js" defer></script>
 </head>
 <body>
-    <div class="container flex-box-center">
-        <div class="loader flex-box-center">
-            <h1 class="loader-heading">Loading...</h1>
+    <div>
+        <div class="search-container">
+            <input id="valueCity" type="text">
+            <button id="btnSubmit">Confirm</button>
         </div>
-        <div class="top-container">
-            <div class="theme">Theme</div>
-            <div class="search-container">
-                <input id="valueCity" type="text">
-                <button id="btnSubmit">Confirm</button>
+        <div class="container flex-box-center">
+            <div class="loader flex-box-center">
+                <h1 class="loader-heading">Loading...</h1>
             </div>
-        </div>
-        
-        <div class="weather-container">
-            <div id="condition-container">
-                <img class="condition-img" src="" alt="">
-                <div id="temperature"></div>
-                <p class="condition-text"></p>
+            <div class="top-container">
+                <div class="theme">Theme</div>
+                
             </div>
-            <div id="weather-info">
-                <div id="location"></div>
-            </div>
-            <div id="weather-additional">
-                <div class="feelslike-container">
-                    <img class="feelslike-img" src="img/Temperature-PNG-Clipart.png" alt="">
-                    <div class="feelslike-c"></div>
+            
+            <div class="weather-container">
+                <div id="condition-container">
+                    <img class="condition-img" src="" alt="">
+                    <div id="temperature"></div>
+                    <p class="condition-text"></p>
                 </div>
-                <div class="humidity-container">
-                    <img class="humidity-img" src="" alt="">
-                    <div class="humidity"></div>
+                <div id="weather-info">
+                    <div id="location"></div>
+                </div>
+                <div id="weather-additional">
+                    <div class="feelslike-container">
+                        <img class="feelslike-img" src="img/Temperature-PNG-Clipart.png" alt="">
+                        <div class="feelslike-c"></div>
+                    </div>
+                    <div class="humidity-container">
+                        <img class="humidity-img" src="" alt="">
+                        <div class="humidity"></div>
+                    </div>
                 </div>
             </div>
+            <div class="bottomHeading">Weather Application 2023</div>
         </div>
-        <div class="bottomHeading">Weather Application 2023</div>
     </div>
 </body>
 </html>
