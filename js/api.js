@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch((error) => {
                 //Handle errors
                 console.error('Error: ', error);
+                alert('Unknown location, try to enter another');
             });
         }
     });
