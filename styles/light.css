@@ -31,7 +31,7 @@ body {
 }
  .heading-box {
    text-align: center;
- }
+}
   .welcomeModal-heading {
    font-size: 30px;
    color: black;
@@ -208,7 +208,7 @@ body {
     text-align: start;
     margin: 5px 0;
     border-bottom: 0.5px solid grey;
- }
+}
  #valueCity {
     margin: 5px 0 15px 10px;
     border-radius: 10px;

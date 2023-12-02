@@ -1,3 +1,4 @@
+export { welcomeWindow };
 //Select the button element
 const themeButton = document.querySelector('.theme');
 
@@ -39,3 +40,46 @@ document.addEventListener('DOMContentLoaded', () => {
         stylesheet.setAttribute('href', `styles/${storedTheme}.css`);
     }
 });
+
+const body = document.querySelector('body');
+const nextButton = document.createElement('button');
+
+function welcomeWindow() {
+    
+    clearPage();
+
+    const welcomeModal = document.createElement('div');
+    const headingBox = document.createElement('div');
+    const welcomeHeading = document.createElement('h1');
+    const welcomeUnderHeading = document.createElement('p');
+    const welcomeImg = document.createElement('img');
+
+    welcomeModal.classList.add('welcome-modal');
+
+    headingBox.classList.add('heading-box');
+
+    welcomeHeading.textContent = 'Weathyy';
+    welcomeHeading.classList.add('welcomeModal-heading');
+
+    welcomeUnderHeading.textContent = 'Weather App';
+    welcomeUnderHeading.classList.add('welcome-underHeading');
+
+    welcomeImg.src = 'img/umbrella_start.png';
+    welcomeImg.classList.add('welcome-img');
+
+    nextButton.classList.add('welcome-nextbutton');
+
+    //Append two elements into main div with class "headingBox";
+    headingBox.appendChild(welcomeHeading);
+    headingBox.appendChild(welcomeUnderHeading);
+
+    welcomeModal.appendChild(welcomeImg);
+    welcomeModal.appendChild(headingBox);
+    welcomeModal.appendChild(nextButton);
+
+    body.appendChild(welcomeModal);
+}
+
+function clearPage() {
+    body.innerHTML = '';
+}
