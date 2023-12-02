@@ -4,7 +4,6 @@ const themeButton = document.querySelector('.theme');
 //Add a click event listener to the theme button
 themeButton.addEventListener('click', () => {
     toggleTheme();
-
 });
 
 //Function to toggle between light and dark themes

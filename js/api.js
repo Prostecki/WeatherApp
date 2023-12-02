@@ -1,8 +1,30 @@
 const body = document.querySelector('body');
 
+document.addEventListener('DOMContentLoaded', welcomeWindow);
+
 function welcomeWindow() {
     clearPage();
 
+    const welcomeModal = document.createElement('div');
+    const welcomeHeading = document.createElement('h1');
+    const welcomeImg = document.createElement('img');
+    const nextButton = document.createElement('button');
+
+    welcomeHeading.textContent = 'Weathyy';
+    welcomeHeading.classList.add('welcomeModal-heading');
+
+    welcomeModal.classList.add('welcome-modal');
+
+    welcomeImg.src = 'img/umbrella_start.png';
+    welcomeImg.classList.add('welcome-img');
+
+    nextButton.classList.add('welcome-nextbutton');
+
+    welcomeModal.appendChild(welcomeImg);
+    welcomeModal.appendChild(welcomeHeading);
+    welcomeModal.appendChild(nextButton);
+
+    body.appendChild(welcomeModal);
 }
 
 function clearPage() {
