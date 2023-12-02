@@ -1,6 +1,6 @@
-import { welcomeWindow } from './dom.js';
+// import { welcomeWindow } from './dom.js';
 
-document.addEventListener('DOMContentLoaded', welcomeWindow);
+// document.addEventListener('DOMContentLoaded', welcomeWindow);
 
 // Wait for the DOM content to be fully loaded before executing the script
 document.addEventListener('DOMContentLoaded', () => {
@@ -48,12 +48,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add an event listener to the button for fetching weather data on click
     document.getElementById('btnSubmit').addEventListener('click', () => {
         //Get the value of the city from the input field
-        const valueCity = document.getElementById('valueCity').value;
+        const valueCityInput = document.getElementById('valueCity');
+
+        if (valueCityInput) { 
+            let valueCity = valueCityInput.value;
 
         //Checks if valueCity is an empty string || Checks if valueCity is not a number.
-        if(valueCity === '' || !isNaN(valueCity)) {
+        if (valueCity === '' || !isNaN(valueCity)) {
             alert('Insert a city!');
-            document.getElementById('valueCity').value = '';
+            valueCity = '';
         } else {
 
         //Construct the full API URL with parameters using the input city
@@ -82,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('weatherData', JSON.stringify(data));
 
                 // Clear the input field
-                document.getElementById('valueCity').value = '';
+                // document.getElementById('valueCity').value = '';
+                valueCity = '';
             })
             .catch((error) => {
                 //Handle errors
@@ -90,12 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Unknown location, try to enter another');
             });
         }
-    });
+    }});
 
     //Check if weather data is stored in localStorage on page load
     const storedWeatherData = localStorage.getItem('weatherData');
-    if (storedWeatherData) {
 
+    if (storedWeatherData) {
         //Parse stored weather data from localStorage
         const data = JSON.parse(storedWeatherData);
         console.log(data);
