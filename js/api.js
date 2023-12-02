@@ -1,3 +1,14 @@
+const body = document.querySelector('body');
+
+function welcomeWindow() {
+    clearPage();
+
+}
+
+function clearPage() {
+    body.innerHTML = '';
+}
+
 // Wait for the DOM content to be fully loaded before executing the script
 document.addEventListener('DOMContentLoaded', () => {
     //Weather API key for authentication
