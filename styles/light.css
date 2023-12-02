@@ -28,10 +28,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+ .heading-box {
+   text-align: center;
  }
   .welcomeModal-heading {
-   font-size: 25px;
-   color: rgb(95, 172, 246);
+   font-size: 30px;
+   color: black;
+   font-weight: bolder;
    text-align: center;
 }
  .welcome-img {
@@ -50,13 +54,13 @@ body {
    content: "\2192"; /* Unicode character or an image can also be used */
    transform: translate(-50%, -50%);
    font-size: 25px;
+   color: #ffffff;
    opacity: 0;
    transition: opacity 0.3s ease;
 }
  .welcome-nextbutton:hover::before{
    color: #ffffff;
    opacity: 1;
-   /* transition: 0.3s; */
  }
  .flex-box-center-column {
    display: flex;
