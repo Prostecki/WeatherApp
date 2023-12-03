@@ -1,9 +1,12 @@
-// import { welcomeWindow } from './dom.js';
+import { welcomeWindow } from './dom.js';
 
-// document.addEventListener('DOMContentLoaded', welcomeWindow);
+document.addEventListener('DOMContentLoaded', welcomeWindow);
+
+const welcomeButton = document.querySelector('welcome-nextbutton');
+console.log(welcomeButton);
 
 // Wait for the DOM content to be fully loaded before executing the script
-document.addEventListener('DOMContentLoaded', () => {
+welcomeButton.addEventListener('click', () => {
     //Weather API key for authentication
     const apiKey = '6a1dd8448eaa46809c8184729232311';
     
