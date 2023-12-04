@@ -76,9 +76,24 @@ body {
    flex-direction: column;
 }
  .weather-app-disppearing {
+   position: absolute;
    opacity: 0;
    pointer-events: none;
    transition: 0.5s;
+}
+.fade-out {
+   opacity: 1;
+   transition: opacity 0.5s ease-in-out;
+}
+ .fade-out.hidden {
+   opacity: 0;
+}
+ .weather-app-appearing {
+   opacity: 0;
+   transition: opacity 0.5s ease-in-out;
+}
+ .weather-app-appearing.visible {
+   opacity: 1;
 }
  .container {
     position: relative;

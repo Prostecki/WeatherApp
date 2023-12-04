@@ -48,15 +48,21 @@ document.addEventListener('DOMContentLoaded', () => {
     body.appendChild(welcomeModal);
 
     //For clearing modal and displaying weather app
-    function clearWelcomePage() {
-        welcomeModal.remove();
-    }
+    function removeWelcomePage() {
+        welcomeModal.classList.add('fade-out', 'hidden');
+        setTimeout(() => {
+            welcomeModal.remove();
+        }, 500
+    )};
 
     //listener for button in order to display the main content of weather app
     welcomeButton.addEventListener('click', () => {
         //Hide a welcome modal and display weather app as well
-        clearWelcomePage();
-        body.appendChild(weatherApp);
+        removeWelcomePage();
+        setTimeout(()=>{
+            body.appendChild(weatherApp);
+            weatherApp.classList.add('visible');
+        }, 600);
         loadWeatherData();
     });
 });
