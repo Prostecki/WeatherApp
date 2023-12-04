@@ -1,8 +1,10 @@
 import { fetchData, displayWeather, loadWeatherData } from "./api.js";
 
 const body = document.querySelector('body');
+const weatherApp = document.querySelector('.flex-box-center-column');
 
 document.addEventListener('DOMContentLoaded', () => {
+    weatherApp.style.display = 'none';
     // Отображение приветственного окна
     const welcomeButton = document.createElement('button');
     welcomeButton.classList.add('welcome-nextbutton');
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     welcomeButton.addEventListener('click', () => {
         // Скрытие приветственного окна и загрузка данных о погоде
         clearWelcomePage();
+        weatherApp.style.display = 'flex';
         loadWeatherData();
     })
 });
