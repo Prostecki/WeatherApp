@@ -1,3 +1,69 @@
+// Function to fetch data using XMLHttpRequest and return a Promise
+export function fetchData(url) {
+    // Return a Promise that resolves or rejects based on the XMLHttpRequest
+    return new Promise((resolve, reject) => {
+        // Create a new XMLHttpRequest object
+        const xhr = new XMLHttpRequest();
+        // Configure the request: GET request to the specified URL
+        xhr.open('GET', url, true);
+        // Set the event handler function for when data is loaded successfully
+        xhr.onload = function () {
+            // Check if the request was successful (status code 200)
+            if (xhr.status === 200) {
+                // Parse the JSON response
+                const data = JSON.parse(xhr.responseText);
+                
+                // Resolve the Promise with parsed data
+                resolve(data);
+            } else {
+                // If the request was not successful, reject the Promise with the status text
+                reject(xhr.statusText);
+            }
+        };
+        // Set the event handler function for network errors
+        xhr.onerror = function () {
+            // Reject the Promise with a network error message
+            reject('Network error occurred');
+        };
+        // Send the request
+        xhr.send();
+    });
+};
+
+export function displayWeather(data) {
+    // код для отображения погоды на странице
+    const locationElement = document.getElementById('location');
+    const temperatureElement = document.getElementById('temperature');
+    const conditionTextElement = document.querySelector('.condition-text');
+    const conditionImgElement = document.querySelector('.condition-img');
+    const feelslikeElement = document.querySelector('.feelslike-c');
+    const humidityElement = document.querySelector('.humidity');
+
+    temperatureElement.textContent = `${data.current.temp_c}°C`;
+    locationElement.textContent = `${data.location.name}, ${data.location.country}`;
+    conditionTextElement.textContent = `${data.current.condition.text}`;
+    conditionImgElement.src = `${data.current.condition.icon}`;
+    feelslikeElement.textContent = `Feels like: ${data.current.feelslike_c}°C`;
+    humidityElement.textContent = `Humidity: ${data.current.humidity}%`;
+
+    // Сохраняем данные о погоде в localStorage
+    localStorage.setItem('weatherData', JSON.stringify(data));
+}
+
+export function loadWeatherData() {
+    // Проверяем, есть ли сохраненные данные о погоде в localStorage
+    const storedWeatherData = localStorage.getItem('weatherData');
+
+    if (storedWeatherData) {
+        // Если данные есть, загружаем их и отображаем
+        const data = JSON.parse(storedWeatherData);
+        displayWeather(data);
+    } else {
+        // Если данных нет, можно добавить код для отображения сообщения о необходимости выполнить поиск
+        console.log('No weather data found. Please perform a search.');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const submitButton = document.getElementById('btnSubmit');
@@ -77,82 +143,3 @@ document.addEventListener('DOMContentLoaded', () => {
             humidityElement.textContent = `Humidity: ${data.current.humidity}%`;
         }
     });
-
-// Function to fetch data using XMLHttpRequest and return a Promise
-function fetchData(url) {
-    // Return a Promise that resolves or rejects based on the XMLHttpRequest
-    return new Promise((resolve, reject) => {
-        // Create a new XMLHttpRequest object
-        const xhr = new XMLHttpRequest();
-        // Configure the request: GET request to the specified URL
-        xhr.open('GET', url, true);
-        // Set the event handler function for when data is loaded successfully
-        xhr.onload = function () {
-            // Check if the request was successful (status code 200)
-            if (xhr.status === 200) {
-                // Parse the JSON response
-                const data = JSON.parse(xhr.responseText);
-                
-                // Resolve the Promise with parsed data
-                resolve(data);
-            } else {
-                // If the request was not successful, reject the Promise with the status text
-                reject(xhr.statusText);
-            }
-        };
-        // Set the event handler function for network errors
-        xhr.onerror = function () {
-            // Reject the Promise with a network error message
-            reject('Network error occurred');
-        };
-        // Send the request
-        xhr.send();
-    });
-};
-
-
-function clearPage() {
-    body.innerHTML = '';
-};
-
-//Select the button element
-const themeButton = document.querySelector('.theme');
-
-//Add a click event listener to the theme button
-themeButton.addEventListener('click', () => {
-    toggleTheme();
-});
-
-//Function to toggle between light and dark themes
-function toggleTheme() {
-    // Get the link element for the stylesheet
-    const stylesheet = document.getElementById('stylesheet');
-
-    // Check the current theme and switch to the opposite
-    if (stylesheet.getAttribute('href') === 'styles/light.css') {
-        // Set the stylesheet to dark mode
-        stylesheet.setAttribute('href', 'styles/dark.css');
-        //Save theme preferences
-        localStorage.setItem('theme', 'dark');
-        themeButton.textContent = 'Light Theme';
-    } else {
-        // Set the stylesheet to light mode
-        stylesheet.setAttribute('href', 'styles/light.css');
-        //Save theme preferences
-        localStorage.setItem('theme', 'light')
-        themeButton.textContent = 'Dark Theme';
-    }
-};
-
-// Check for stored theme preferences on page load
-document.addEventListener('DOMContentLoaded', () => {
-
-    // Retrieve stored theme preferences from localStorage
-    const storedTheme = localStorage.getItem('theme');
-
-    // If there are stored preferences, apply the corresponding theme
-    if (storedTheme) {
-        const stylesheet = document.getElementById('stylesheet');
-        stylesheet.setAttribute('href', `styles/${storedTheme}.css`);
-    }
-});
