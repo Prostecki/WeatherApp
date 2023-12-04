@@ -5,26 +5,32 @@ const weatherApp = document.querySelector('.flex-box-center-column');
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    //Open the page without content, just welcome modal, therefore remove it
     weatherApp.remove();
 
-    //Display welcome modal
+    //Create welcome modal and add css class
     const welcomeModal = document.createElement('div');
     welcomeModal.classList.add('welcome-modal');
-    
+
+    //Create button for open weather app and add css class
     const welcomeButton = document.createElement('button');
     welcomeButton.classList.add('welcome-nextbutton');
     
+    //Create title box and and add css class
     const headingBox = document.createElement('div');
     headingBox.classList.add('heading-box');
 
+    //Create h1 with content and add css class
     const welcomeHeading = document.createElement('h1');
     welcomeHeading.textContent = 'Weathyy';
     welcomeHeading.classList.add('welcomeModal-heading');
 
+    //Create p element with content and add css class
     const welcomeUnderHeading = document.createElement('p');
     welcomeUnderHeading.textContent = 'Weather App';
     welcomeUnderHeading.classList.add('welcome-underHeading');
 
+    //Create img element and append source with css class
     const welcomeImg = document.createElement('img');
     welcomeImg.src = 'img/umbrella_start.png';
     welcomeImg.classList.add('welcome-img');
@@ -33,16 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
     headingBox.appendChild(welcomeHeading);
     headingBox.appendChild(welcomeUnderHeading);
 
+    //Append all created elements into welcomModal
     welcomeModal.appendChild(welcomeImg);
     welcomeModal.appendChild(headingBox);
     welcomeModal.appendChild(welcomeButton);
 
+    //Declare welcomeModal into body selector
     body.appendChild(welcomeModal);
 
+    //For clearing modal and displaying weather app
     function clearWelcomePage() {
         welcomeModal.remove();
     }
 
+    //listener for button in order to display the main content of weather app
     welcomeButton.addEventListener('click', () => {
         //Hide a welcome modal and display weather app as well
         clearWelcomePage();
