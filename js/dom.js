@@ -4,14 +4,16 @@ const body = document.querySelector('body');
 const weatherApp = document.querySelector('.flex-box-center-column');
 
 document.addEventListener('DOMContentLoaded', () => {
-    weatherApp.style.display = 'none';
-    // Отображение приветственного окна
-    const welcomeButton = document.createElement('button');
-    welcomeButton.classList.add('welcome-nextbutton');
 
+    weatherApp.remove();
+
+    //Display welcome modal
     const welcomeModal = document.createElement('div');
     welcomeModal.classList.add('welcome-modal');
-
+    
+    const welcomeButton = document.createElement('button');
+    welcomeButton.classList.add('welcome-nextbutton');
+    
     const headingBox = document.createElement('div');
     headingBox.classList.add('heading-box');
 
@@ -38,15 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
     body.appendChild(welcomeModal);
 
     function clearWelcomePage() {
-        welcomeModal.style.display = 'none';
+        welcomeModal.remove();
     }
 
     welcomeButton.addEventListener('click', () => {
-        // Скрытие приветственного окна и загрузка данных о погоде
+        //Hide a welcome modal and display weather app as well
         clearWelcomePage();
-        weatherApp.style.display = 'flex';
+        body.appendChild(weatherApp);
         loadWeatherData();
-    })
+    });
 });
 
 const submitButton = document.getElementById('btnSubmit');
