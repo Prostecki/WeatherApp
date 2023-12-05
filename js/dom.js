@@ -2,6 +2,7 @@ import { fetchData, displayWeather, loadWeatherData } from "./api.js";
 
 const body = document.querySelector('body');
 const weatherApp = document.querySelector('.flex-box-center-column');
+const valueCityInput = document.getElementById('valueCity');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     welcomeImg.src = 'img/umbrella_start.png';
     welcomeImg.classList.add('welcome-img');
 
-    //Append two elements into main div with class "headingBox";
+    //Append two elements into main div with class "headingBox"
     headingBox.appendChild(welcomeHeading);
     headingBox.appendChild(welcomeUnderHeading);
 
@@ -67,32 +68,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const submitButton = document.getElementById('btnSubmit');
-    submitButton.addEventListener('click', () => {
-        const apiKey = '6a1dd8448eaa46809c8184729232311';
-        const baseUrl = 'https://api.weatherapi.com/v1';
-        const valueCityInput = document.getElementById('valueCity');
-
-        if (valueCityInput) {
-            let valueCity = valueCityInput.value;
-
-            if (valueCity === '' || !isNaN(valueCity)) {
-                alert('Insert a city!');
-                valueCity = '';
-            } else {
-                const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
-
-                fetchData(apiUrl)
-                    .then((data) => {
-                        displayWeather(data);
-                        valueCity = '';
-                    })
-                    .catch((error) => {
-                        console.error('Error: ', error);
-                        alert('Unknown location, try to enter another');
-                    });
+// const submitButton = document.getElementById('btnSubmit');
+    valueCityInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            const apiKey = '6a1dd8448eaa46809c8184729232311';
+            const baseUrl = 'https://api.weatherapi.com/v1';
+    
+            if (valueCityInput) {
+                let valueCity = valueCityInput.value;
+    
+                if (valueCity === '' || !isNaN(valueCity)) {
+                    alert('Insert a city!');
+                    valueCity = '';
+                } else {
+                    const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
+    
+                    fetchData(apiUrl)
+                        .then((data) => {
+                            displayWeather(data);
+                            valueCity = '';
+                        })
+                        .catch((error) => {
+                            console.error('Error: ', error);
+                            alert('Unknown location, try to enter another');
+                        });
+                }
             }
-        }
+        };
     });
 
 const themeButton = document.querySelector('.theme');
