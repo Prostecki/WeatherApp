@@ -31,8 +31,9 @@ export function fetchData(url) {
 };
 
 export function displayWeather(data) {
-    // код для отображения погоды на странице
+    //Display a data on the page
     const locationElement = document.getElementById('location');
+    const localTime = document.getElementById('localTime');
     const temperatureElement = document.getElementById('temperature');
     const conditionTextElement = document.querySelector('.condition-text');
     const conditionImgElement = document.querySelector('.condition-img');
@@ -41,25 +42,26 @@ export function displayWeather(data) {
 
     temperatureElement.textContent = `${data.current.temp_c}°C`;
     locationElement.textContent = `${data.location.name}, ${data.location.country}`;
+    localTime.textContent = `${data.location.localtime}`;
     conditionTextElement.textContent = `${data.current.condition.text}`;
     conditionImgElement.src = `${data.current.condition.icon}`;
     feelslikeElement.textContent = `Feels like: ${data.current.feelslike_c}°C`;
     humidityElement.textContent = `Humidity: ${data.current.humidity}%`;
 
-    // Сохраняем данные о погоде в localStorage
+    //Save a data about weather in localStorage
     localStorage.setItem('weatherData', JSON.stringify(data));
 }
 
 export function loadWeatherData() {
-    // Проверяем, есть ли сохраненные данные о погоде в localStorage
+    //Check if it's possible to display a data in localStorage
     const storedWeatherData = localStorage.getItem('weatherData');
 
     if (storedWeatherData) {
-        // Если данные есть, загружаем их и отображаем
+        //If it is, load and display
         const data = JSON.parse(storedWeatherData);
         displayWeather(data);
     } else {
-        // Если данных нет, можно добавить код для отображения сообщения о необходимости выполнить поиск
+        //If it isn't, run console log message
         console.log('No weather data found. Please perform a search.');
     }
 }
@@ -94,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then((data) => {
                     //Extract location and temperature from the data
                     const locationElement = document.getElementById('location');
+                    const localTime = document.getElementById('localTime');
                     const temperatureElement = document.getElementById('temperature');
                     const conditionTextElement = document.querySelector('.condition-text');
                     const conditionImgElement = document.querySelector('.condition-img');
@@ -103,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     //Update HTML elements with weather information
                     temperatureElement.textContent = `${data.current.temp_c}°C`;
                     locationElement.textContent = `${data.location.name}, ${data.location.country}`;
+                    localTime.textContent = `${data.location.localtime}`;
                     conditionTextElement.textContent = `${data.current.condition.text}`;
                     conditionImgElement.src = `${data.current.condition.icon}`;
                     feelslikeElement.textContent = `Feels like: ${data.current.feelslike_c}°C`;
@@ -129,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(data);
             // Update HTML elements with stored weather information
             const locationElement = document.getElementById('location');
+            const localTime = document.getElementById('localTime');
             const temperatureElement = document.getElementById('temperature');
             const conditionTextElement = document.querySelector('.condition-text');
             const conditionImgElement = document.querySelector('.condition-img');
@@ -137,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
             temperatureElement.textContent = `${data.current.temp_c}°C`;
             locationElement.textContent = `${data.location.name}, ${data.location.country}`;
+            localTime.textContent = `${data.location.localtime}`;
             conditionTextElement.textContent = `${data.current.condition.text}`;
             conditionImgElement.src = `${data.current.condition.icon}`;
             feelslikeElement.textContent = `Feels like: ${data.current.feelslike_c}°C`;

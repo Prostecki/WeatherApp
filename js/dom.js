@@ -120,5 +120,3 @@ document.addEventListener('DOMContentLoaded', () => {
         stylesheet.setAttribute('href', `styles/${storedTheme}.css`);
     }
 });
-
-
