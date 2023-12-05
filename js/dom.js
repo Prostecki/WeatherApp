@@ -68,34 +68,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// const submitButton = document.getElementById('btnSubmit');
-    valueCityInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            const apiKey = '6a1dd8448eaa46809c8184729232311';
-            const baseUrl = 'https://api.weatherapi.com/v1';
-    
-            if (valueCityInput) {
-                let valueCity = valueCityInput.value;
-    
-                if (valueCity === '' || !isNaN(valueCity)) {
-                    alert('Insert a city!');
-                    valueCity = '';
-                } else {
-                    const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
-    
-                    fetchData(apiUrl)
-                        .then((data) => {
-                            displayWeather(data);
-                            valueCity = '';
-                        })
-                        .catch((error) => {
-                            console.error('Error: ', error);
-                            alert('Unknown location, try to enter another');
-                        });
-                }
+valueCityInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        const apiKey = '6a1dd8448eaa46809c8184729232311';
+        const baseUrl = 'https://api.weatherapi.com/v1';
+        if (valueCityInput) {
+            let valueCity = valueCityInput.value;
+
+            if (valueCity === '' || !isNaN(valueCity)) {
+                alert('Insert a city!');
+            } else {
+                const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
+                fetchData(apiUrl)
+                    .then((data) => {
+                        displayWeather(data);
+                        valueCityInput.value = '';
+                    })
+                    .catch((error) => {
+                        console.error('Error: ', error);
+                        alert('Unknown location, try to enter another');
+                    });
             }
-        };
-    });
+        }
+    };
+});
 
 const themeButton = document.querySelector('.theme');
 themeButton.addEventListener('click', () => {
