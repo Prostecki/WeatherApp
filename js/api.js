@@ -89,10 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
     
             //Construct the full API URL with parameters using the input city
-            const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
+            const currentApiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
     
             //Use the fetchData function to get weather data
-            fetchData(apiUrl)
+            fetchData(currentApiUrl)
                 .then((data) => {
                     //Extract location and temperature from the data
                     const locationElement = document.getElementById('location');

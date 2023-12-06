@@ -7,7 +7,8 @@ const valueCityInput = document.getElementById('valueCity');
 document.addEventListener('DOMContentLoaded', () => {
 
     //Open the page without content, just welcome modal, therefore remove it
-    weatherApp.remove();
+    weatherApp.classList.remove('flex-box-center-column');
+    weatherApp.classList.add('weather-app-disppearing');
 
     //Create welcome modal and add css class
     const welcomeModal = document.createElement('div');
@@ -60,10 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
     welcomeButton.addEventListener('click', () => {
         //Hide a welcome modal and display weather app as well
         removeWelcomePage();
-        setTimeout(()=>{
+        setTimeout(() => {
             body.appendChild(weatherApp);
-            weatherApp.classList.add('visible');
-        }, 600);
+            weatherApp.classList.remove('weather-app-disppearing');
+            weatherApp.classList.add('flex-box-center-column');
+        }, 800);
         loadWeatherData();
     });
 });
@@ -78,16 +80,16 @@ valueCityInput.addEventListener('keydown', (event) => {
             if (valueCity === '' || !isNaN(valueCity)) {
                 alert('Insert a city!');
             } else {
-                const apiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
-                fetchData(apiUrl)
+                const currentApiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
+                fetchData(currentApiUrl)
                     .then((data) => {
                         displayWeather(data);
                         valueCityInput.value = '';
-                    })
+                })
                     .catch((error) => {
                         console.error('Error: ', error);
                         alert('Unknown location, try to enter another');
-                    });
+                });
             }
         }
     };
