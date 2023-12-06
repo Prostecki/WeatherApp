@@ -74,6 +74,7 @@ valueCityInput.addEventListener('keydown', async (event) => {
     if (event.key === 'Enter') {
         const apiKey = '6a1dd8448eaa46809c8184729232311'; // Replace with your actual API key
         const baseUrl = 'https://api.weatherapi.com/v1';
+
         if (valueCityInput) {
             let valueCity = valueCityInput.value;
 
@@ -81,9 +82,18 @@ valueCityInput.addEventListener('keydown', async (event) => {
                 alert('Insert a city!');
             } else {
                 const currentApiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
+                const astronomyApiUrl = `${baseUrl}/astronomy.json?key=${apiKey}&q=${valueCity}`;
+
                 try {
-                    const data = await fetchData(currentApiUrl);
-                    displayWeather(data);
+                    const [currentData, astronomyData] = await Promise.all([
+                        fetchData(currentApiUrl),
+                        fetchData(astronomyApiUrl)
+                    ]);
+
+                    // Use currentData and astronomyData as needed
+                    displayWeather(currentData);
+                    console.log('Astronomy Data:', astronomyData);
+
                     valueCityInput.value = '';
                 } catch (error) {
                     console.error('Error: ', error);

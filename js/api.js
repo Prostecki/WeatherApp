@@ -206,10 +206,12 @@ export function loadWeatherData() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('btnSubmit');
-    submitButton.addEventListener('click', async () => {
+    const valueCityInput = document.getElementById('valueCity');
+
+    // Function to handle weather data fetching
+    const fetchDataAndDisplayWeather = async () => {
         const apiKey = '6a1dd8448eaa46809c8184729232311'; // Replace with your actual API key
         const baseUrl = 'https://api.weatherapi.com/v1';
-        const valueCityInput = document.getElementById('valueCity');
 
         if (valueCityInput) {
             let valueCity = valueCityInput.value;
@@ -219,18 +221,30 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 const currentApiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
                 const astronomyApiUrl = `${baseUrl}/astronomy.json?key=${apiKey}&q=${valueCity}`;
+
                 try {
                     const [currentData, astronomyData] = await Promise.all([
                         fetchData(currentApiUrl),
                         fetchData(astronomyApiUrl)
                     ]);
                     displayWeather(currentData);
+                    console.log('Current Data:', currentData);
                     console.log('Astronomy Data:', astronomyData);
                 } catch (error) {
                     console.error('Error:', error);
                     alert('Unknown location, try to enter another');
                 }
             }
+        }
+    };
+
+    // Event listener for the button click
+    submitButton.addEventListener('click', fetchDataAndDisplayWeather);
+
+    // Event listener for 'Enter' key press in the input field
+    valueCityInput.addEventListener('keydown', async (event) => {
+        if (event.key === 'Enter') {
+            await fetchDataAndDisplayWeather();
         }
     });
     loadWeatherData();
