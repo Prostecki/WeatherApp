@@ -1,4 +1,4 @@
-import { fetchData, displayWeather, loadWeatherData } from "./api.js";
+import { displayWeather, fetchData, loadWeatherData } from './api.js'
 
 const body = document.querySelector('body');
 const weatherApp = document.querySelector('.flex-box-center-column');
@@ -70,9 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-valueCityInput.addEventListener('keydown', (event) => {
+valueCityInput.addEventListener('keydown', async (event) => {
     if (event.key === 'Enter') {
-        const apiKey = '6a1dd8448eaa46809c8184729232311';
+        const apiKey = '6a1dd8448eaa46809c8184729232311'; // Replace with your actual API key
         const baseUrl = 'https://api.weatherapi.com/v1';
         if (valueCityInput) {
             let valueCity = valueCityInput.value;
@@ -81,19 +81,19 @@ valueCityInput.addEventListener('keydown', (event) => {
                 alert('Insert a city!');
             } else {
                 const currentApiUrl = `${baseUrl}/current.json?key=${apiKey}&q=${valueCity}`;
-                fetchData(currentApiUrl)
-                    .then((data) => {
-                        displayWeather(data);
-                        valueCityInput.value = '';
-                })
-                    .catch((error) => {
-                        console.error('Error: ', error);
-                        alert('Unknown location, try to enter another');
-                });
+                try {
+                    const data = await fetchData(currentApiUrl);
+                    displayWeather(data);
+                    valueCityInput.value = '';
+                } catch (error) {
+                    console.error('Error: ', error);
+                    alert('Unknown location, try to enter another');
+                }
             }
         }
-    };
+    }
 });
+
 
 const themeButton = document.querySelector('.theme');
 themeButton.addEventListener('click', () => {
