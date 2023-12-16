@@ -123,11 +123,11 @@ function toggleTheme() {
     }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    const storedTheme = localStorage.getItem('theme');
+// document.addEventListener('DOMContentLoaded', () => {
+//     const storedTheme = localStorage.getItem('theme');
 
-    if (storedTheme) {
-        const stylesheet = document.getElementById('stylesheet');
-        stylesheet.setAttribute('href', `styles/${storedTheme}.css`);
-    }
-});
+//     if (storedTheme) {
+//         const stylesheet = document.getElementById('stylesheet');
+//         stylesheet.setAttribute('href', `styles/${storedTheme}.css`);
+//     }
+// });

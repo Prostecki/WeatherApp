@@ -13,7 +13,8 @@
             <div class="search-container">
                 <h1 class="search-heading">Weather App</h1>
                 <input id="valueCity" type="text" placeholder="Enter the location">
-                <button id="btnSubmit">Get the location</button>
+                <button id="btnSubmit">Get</button>
+                <button class="toggleTemperature">Switch</button>
             </div>
             <div class="loader flex-box-center">
                 <h1 class="loader-heading">Loading...</h1>
@@ -21,13 +22,14 @@
             <div class="top-container">
                 <div class="theme">Theme</div>    
             </div>
-            
+
+            <div id="condition-container">
+                <img class="condition-img" src="" alt="">
+                <div id="temperature"></div>
+                <p class="condition-text"></p>
+            </div>
+
             <div class="weather-container">
-                <div id="condition-container">
-                    <img class="condition-img" src="" alt="">
-                    <div id="temperature"></div>
-                    <p class="condition-text"></p>
-                </div>
                 <div id="weather-info">
                     <div id="location"></div>
                     <div id="localTime"></div>
