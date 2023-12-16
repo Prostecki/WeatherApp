@@ -104,7 +104,6 @@ valueCityInput.addEventListener('keydown', async (event) => {
     }
 });
 
-
 const themeButton = document.querySelector('.theme');
 themeButton.addEventListener('click', () => {
     toggleTheme();
