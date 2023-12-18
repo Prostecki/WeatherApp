@@ -171,6 +171,9 @@ body {
    align-items: center;
    padding: 15px 0 0 0;
 }
+ .weather-container-header {
+   text-align: start;
+ }
  .feelslike-container, .humidity-container {
    width: 50%;
    display: flex;
@@ -291,6 +294,10 @@ body {
    background-color: #ffc107; /* Yellow color */
    color: #333;
    transition: 0.5s;
+}
+.common-bubble-box {
+   border-radius: 12px;
+   border: 1px solid black;
 }
 
 @media screen and (max-width: 800px) {

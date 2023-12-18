@@ -20,7 +20,8 @@ export function displayWeather(data) {
         conditionImg: document.querySelector('.condition-img'),
         feelslike: document.querySelector('.feelslike-c'),
         feelslikeF: document.querySelector('.feelslike-f'),
-        humidity: document.querySelector('.humidity')
+        humidity: document.querySelector('.humidity'),
+        wind: document.querySelector('.wind'),
     };
 
     elements.temperature.textContent = `${current.temp_c}°C`;
@@ -31,6 +32,7 @@ export function displayWeather(data) {
     elements.feelslike.textContent = `Feels like: ${current.feelslike_c}°C`;
     elements.feelslikeF.textContent = `Feels like: ${current.feelslike_f}F`;
     elements.humidity.textContent = `Humidity: ${current.humidity}%`;
+    elements.wind.textContent = `Wind: ${current.condition.wind_kph}`;
 
     localStorage.setItem('weatherData', JSON.stringify(data));
 }
