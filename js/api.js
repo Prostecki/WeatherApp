@@ -11,7 +11,7 @@ export function fetchData(url) {
 
 // Function to display weather data
 export function displayWeather(data, astronomyData) {
-    const { current, location } = data;
+    const { current, location, astronomy } = data;
     const elements = {
         location: document.getElementById('location'),
         localTime: document.getElementById('localTime'),
@@ -34,11 +34,15 @@ export function displayWeather(data, astronomyData) {
     elements.feelslike.textContent = `Feels like: ${current.feelslike_c}°C`;
     elements.feelslikeF.textContent = `Feels like: ${current.feelslike_f}F`;
     elements.humidity.textContent = `Humidity: ${current.humidity}%`;
-    elements.wind.textContent = `Wind: ${current.wind_kph}`;
+    elements.wind.textContent = `Wind: ${current.wind_kph} km/h`;
 
     // Display astronomy data
     if (astronomyData && astronomyData.astro) {
         const { sunrise, sunset } = astronomyData.astro;
+        
+        console.log('Astronomy Data:', astronomyData);
+        console.log('Sunrise:', sunrise);
+        console.log('Sunset:', sunset);
 
         elements.sunrise.textContent = `Sunrise: ${sunrise}`;
         elements.sunset.textContent = `Sunset: ${sunset}`;
@@ -47,7 +51,7 @@ export function displayWeather(data, astronomyData) {
 
     // Save both weather and astronomy data to localStorage
     const combinedData = { ...data, astronomy: astronomyData };
-    localStorage.setItem('weatherData', JSON.stringify(combinedData));
+    localStorage.setItem('weatherData', JSON.stringify(combinedData));  
 }
 
 // Function to load weather data
