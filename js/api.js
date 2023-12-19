@@ -10,7 +10,7 @@ export function fetchData(url) {
 }
 
 // Function to display weather data
-export function displayWeather(data) {
+export function displayWeather(data, astronomyData) {
     const { current, location } = data;
     const elements = {
         location: document.getElementById('location'),
@@ -22,6 +22,8 @@ export function displayWeather(data) {
         feelslikeF: document.querySelector('.feelslike-f'),
         humidity: document.querySelector('.humidity'),
         wind: document.querySelector('.wind'),
+        sunrise: document.querySelector('.sunrise'),
+        sunset: document.querySelector('.sunset'),
     };
 
     elements.temperature.textContent = `${current.temp_c}°C`;
@@ -32,9 +34,20 @@ export function displayWeather(data) {
     elements.feelslike.textContent = `Feels like: ${current.feelslike_c}°C`;
     elements.feelslikeF.textContent = `Feels like: ${current.feelslike_f}F`;
     elements.humidity.textContent = `Humidity: ${current.humidity}%`;
-    elements.wind.textContent = `Wind: ${current.condition.wind_kph}`;
+    elements.wind.textContent = `Wind: ${current.wind_kph}`;
 
-    localStorage.setItem('weatherData', JSON.stringify(data));
+    // Display astronomy data
+    if (astronomyData && astronomyData.astro) {
+        const { sunrise, sunset } = astronomyData.astro;
+
+        elements.sunrise.textContent = `Sunrise: ${sunrise}`;
+        elements.sunset.textContent = `Sunset: ${sunset}`;
+    }
+
+
+    // Save both weather and astronomy data to localStorage
+    const combinedData = { ...data, astronomy: astronomyData };
+    localStorage.setItem('weatherData', JSON.stringify(combinedData));
 }
 
 // Function to load weather data
