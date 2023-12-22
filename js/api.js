@@ -24,6 +24,7 @@ export function displayWeather(data, astronomyData) {
         wind: document.querySelector('.wind'),
         sunrise: document.querySelector('.sunrise'),
         sunset: document.querySelector('.sunset'),
+        uv: document.querySelector('.uv'),
     };
 
     elements.temperature.textContent = `${current.temp_c}°C`;
@@ -35,6 +36,7 @@ export function displayWeather(data, astronomyData) {
     elements.feelslikeF.textContent = `Feels like: ${current.feelslike_f}F`;
     elements.humidity.textContent = `Humidity: ${current.humidity}%`;
     elements.wind.textContent = `Wind: ${current.wind_kph} km/h`;
+    elements.uv.textContent = `UV: ${current.uv}`;
 
     // Display astronomy data
     if (astronomyData && astronomyData.astro) {
