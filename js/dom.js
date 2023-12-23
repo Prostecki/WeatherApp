@@ -93,6 +93,7 @@ valueCityInput.addEventListener('keydown', async (event) => {
                     // Use currentData and astronomyData as needed
                     displayWeather(currentData, astronomyData);
                     console.log('Astronomy Data:', astronomyData);
+                    console.log('Current data:', currentData);
 
                     valueCityInput.value = '';
                 } catch (error) {
