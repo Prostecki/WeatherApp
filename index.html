@@ -1,73 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <link id="stylesheet" rel="stylesheet" href="styles/light.css">
+    <link id="stylesheet" rel="stylesheet" href="styles/light.css" />
     <script src="js/dom.js" type="module"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="flex-box-center-column">
-        <div class="container flex-box-center">
-            <div class="search-container">
-                <h1 class="search-heading">Weather App</h1>
-                <input id="valueCity" type="text" placeholder="Enter the location">
-                <button id="btnSubmit">Get</button>
-                <button class="toggleTemperature">Switch</button>
-            </div>
-            <div class="loader flex-box-center">
-                <h1 class="loader-heading">Loading...</h1>
-            </div>
-            <div class="top-container">
-                <div class="theme">Theme</div>    
-            </div>
-
-            <div id="condition-container">
-                <div id="weather-info">
-                    <div id="location"></div>
-                    <div id="localTime"></div>
-                </div>
-                <img class="condition-img" src="" alt="">
-                <div id="temperature"></div>
-                <p class="condition-text"></p>
-            </div>
-
-            <div class="weather-container">
-                <h1 class="weather-container-header">Weather details</h1>
-                <div id="weather-additional">
-                    <div class="feelslike-container">
-                        <div class="common-bubble-box">
-                            <img class="feelslike-img" src="img/Temperature-PNG-Clipart.png" alt="">
-                            <div class="feelslike-c"></div>
-                        </div>
-                        <div class="common-bubble-box">
-                            <img class="feelslike-img" src="img/Temperature-PNG-Clipart.png" alt="">
-                            <div class="feelslike-f"></div>
-                        </div>
-                    </div>
-                    <div class="humidity-container common-bubble-box">
-                        <img class="humidity-img" src="" alt="">
-                        <div class="humidity"></div>
-                    </div>
-                    <div class="wind common-bubble-box">
-                    </div>
-                    <div class="sunset">
-
-                    </div>
-                    <div class="sunrise">
-
-                    </div>
-                    <div class="uv common-bubble-box">
-
-                    </div>
-                    <div class="visibility common-bubble-box">
-
-                    </div>
-                </div>
-            </div>
-            <div class="bottomHeading">Weather Application 2023</div>
+      <div class="container flex-box-center">
+        <div class="search-container">
+          <h1 class="search-heading">Weather App</h1>
+          <input id="valueCity" type="text" placeholder="Enter the location" />
+          <button id="btnSubmit">Get</button>
+          <button class="toggleTemperature">Switch</button>
         </div>
+        <div class="loader flex-box-center">
+          <h1 class="loader-heading">Loading...</h1>
+        </div>
+        <div class="top-container">
+          <div class="theme">Theme</div>
+        </div>
+
+        <div id="condition-container">
+          <div id="weather-info">
+            <div id="location"></div>
+            <div id="localTime"></div>
+          </div>
+          <img class="condition-img" src="" alt="" />
+          <div id="temperature"></div>
+          <p class="condition-text"></p>
+        </div>
+
+        <div class="weather-container">
+          <h1 class="weather-container-header">Weather details</h1>
+          <div id="weather-additional">
+            <div class="feelslike-container">
+              <div class="common-bubble-box">
+                <img
+                  class="feelslike-img"
+                  src="img/Temperature-PNG-Clipart.png"
+                  alt=""
+                />
+                <div class="feelslike-c"></div>
+              </div>
+              <div class="common-bubble-box">
+                <img
+                  class="feelslike-img"
+                  src="img/Temperature-PNG-Clipart.png"
+                  alt=""
+                />
+                <div class="feelslike-f"></div>
+              </div>
+            </div>
+            <div class="humidity-container common-bubble-box">
+              <img class="humidity-img" src="" alt="" />
+              <div class="humidity"></div>
+            </div>
+            <div class="wind common-bubble-box"></div>
+            <div class="sunset"></div>
+            <div class="sunrise"></div>
+            <div class="uv common-bubble-box"></div>
+            <div class="visibility common-bubble-box"></div>
+          </div>
+        </div>
+        <div class="bottomHeading">Weather Application 2023</div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
